@@ -26,5 +26,5 @@ class TurnTest < Minitest::Test
     turn = Turn.new(player1, player2)
 
     assert_instance_of Turn, turn
-    
   end
+end
