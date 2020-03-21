@@ -38,5 +38,5 @@ class PlayerTest < Minitest::Test
     assert_equal true, player.has_lost?
 
   end
-#binding.pry
+
 end
