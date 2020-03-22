@@ -23,18 +23,30 @@ class Turn
     # :mutually_assured_destruction
   end
 
-  def winner
-    #######this is not working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  def winner #CHECK on variable named same as method
     if type.equal? :basic
       if @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
-        p @player1
+         winner = @player1
       else
-        p @player2
+         winner = @player2
       end
-    elsif type.equal? :war
+   elsif type.equal? :war
 
-    end
-  end
+   end
+ end
+
+ def pile_cards
+   if type.equal? :basic
+     @spoils_of_war << @player1.deck.remove_card
+     @spoils_of_war << @player2.deck.remove_card
+   end
+ end
+
+ def award_spoils(turn_winner)
+   if type.equal? :basic
+     @spoils_of_war << @player1.deck.remove_card
+   end
+ end
 
 
 end
