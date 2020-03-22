@@ -24,7 +24,14 @@ class Turn
   end
 
   def winner
-
+    #######this is not working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if type.equal? :basic && @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+      p @player1
+    elsif type.equal? :basic && @player1.deck.rank_of_card_at(0) < @player2.deck.rank_of_card_at(0)
+      p @player2
+    else
+      p "you broke it"
+    end
   end
 
 

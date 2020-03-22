@@ -52,7 +52,7 @@ class TurnTest < Minitest::Test
     assert_equal :basic, turn.type
   end
 
-  def test_winner
+  def test_winner ######needs work!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     card1 = Card.new(:heart, 'Jack', 11)
     card2 = Card.new(:heart, '10', 10)
     card3 = Card.new(:heart, '9', 9)
@@ -71,7 +71,7 @@ class TurnTest < Minitest::Test
     turn = Turn.new(player1, player2)
 
     turn.winner
-    assert_equal #, turn.winner
+    assert_equal player1 , turn.winner
   end
 
 end
