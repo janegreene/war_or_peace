@@ -14,15 +14,11 @@ class Turn
   def type
     if @player1.deck.rank_of_card_at(0) != @player2.deck.rank_of_card_at(0)
       :basic
+    elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0) && @player1.deck.rank_of_card_at(2) == @player2.deck.rank_of_card_at(2)
+        :mutually_assured_destruction
     else @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
-        :war
+          :war
     end
-    # if 0 index of player1 != 0 index of player2
-    # :basic
-    #elsif
-    # :war
-    #else
-    # :mutually_assured_destruction
   end
 
   def winner #CHECK on variable named same as method
@@ -32,14 +28,15 @@ class Turn
       else
          winner = @player2
       end
-   elsif type.equal? :war
-     if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
+    elsif type.equal? :war
+      if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
         winner = @player1
-     else
+      else
         winner = @player2
-     end
-
-   end
+      end
+    else type.equal? :mutually_assured_destruction
+      "No Winner"
+    end
  end
 
  def pile_cards
@@ -53,15 +50,23 @@ class Turn
     3.times do
        @spoils_of_war << @player2.deck.remove_card
      end
+   else type.equal? :mutually_assured_destruction
+     3.times do
+       @player1.deck.remove_card
+       @player2.deck.remove_card
+      end
    end
  end
 
  def award_spoils(turn_winner)
    if type.equal? :basic
-    @spoils_of_war.each do |spoils|
+      @spoils_of_war.each do |spoils|
        turn_winner.deck.add_card(spoils)
-    end
-
+      end
+    else type.equal? :war
+      @spoils_of_war.each do |spoils|
+      turn_winner.deck.add_card(spoils)
+      end
    end
  end
 
