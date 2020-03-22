@@ -25,12 +25,14 @@ class Turn
 
   def winner
     #######this is not working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    if type.equal? :basic && @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
-      p @player1
-    elsif type.equal? :basic && @player1.deck.rank_of_card_at(0) < @player2.deck.rank_of_card_at(0)
-      p @player2
-    else
-      p "you broke it"
+    if type.equal? :basic
+      if @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+        p @player1
+      else
+        p @player2
+      end
+    elsif type.equal? :war
+
     end
   end
 
