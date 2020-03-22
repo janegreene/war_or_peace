@@ -44,7 +44,10 @@ class Turn
 
  def award_spoils(turn_winner)
    if type.equal? :basic
-     @spoils_of_war << @player1.deck.remove_card
+    @spoils_of_war.each do |spoils|
+       turn_winner.deck.add_card(spoils)
+    end
+
    end
  end
 

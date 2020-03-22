@@ -119,13 +119,13 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
 
     turn = Turn.new(player1, player2)
-
-    turn.spoils_of_war
     winner = turn.winner
+    turn.pile_cards
+    turn.spoils_of_war
     turn.award_spoils(winner)
 
-    assert_equal [], player1.deck
-    assert_equal [], player2.deck
+    assert_equal [card2, card5, card8, card1, card3], player1.deck.cards
+    assert_equal [card4, card6, card7], player2.deck.cards
   end
 
 end
