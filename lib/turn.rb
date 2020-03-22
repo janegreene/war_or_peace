@@ -14,6 +14,8 @@ class Turn
   def type
     if @player1.deck.rank_of_card_at(0) != @player2.deck.rank_of_card_at(0)
       :basic
+    else @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
+        :war
     end
     # if 0 index of player1 != 0 index of player2
     # :basic
@@ -31,6 +33,11 @@ class Turn
          winner = @player2
       end
    elsif type.equal? :war
+     if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
+        winner = @player1
+     else
+        winner = @player2
+     end
 
    end
  end
@@ -39,6 +46,13 @@ class Turn
    if type.equal? :basic
      @spoils_of_war << @player1.deck.remove_card
      @spoils_of_war << @player2.deck.remove_card
+  elsif type.equal? :war
+    3.times do
+       @spoils_of_war << @player1.deck.remove_card
+     end
+    3.times do
+       @spoils_of_war << @player2.deck.remove_card
+     end
    end
  end
 
