@@ -59,5 +59,56 @@ card50 = Card.new(:spade, '4', 4)
 card51 = Card.new(:spade, '3', 3)
 card52 = Card.new(:spade, '2', 2)
 
+hand1 =[card1, card4, card5, card6, card11,
+card12,
+card13,
+card14,
+card15,
+card16,
+card17,
+card18,
+card19,
+card20,
+card27,
+card28, card29,
+card30,
+card31,
+card36, card37, card42,
+card44, card45, card50, card51]
+
+card52
+card43
+card2
+card3
+card7
+card8
+card9
+card10
+card21
+card22
+card23
+card24
+card25
+card26
+card32
+card33
+card34
+card35
+card46
+card47
+card48
+card49,
+card38
+card39
+card40
+card41
+
+#cards = [card1, card2, card3]
+#deck = Deck.new(cards)
+game = Game.new#()
+game.start
+
+#player = Player.new('Clarisa', deck)
+
 
 #need a start method in a class
