@@ -69,11 +69,10 @@ card34, card35, card46, card47, card48, card40, card41]
 
 deck1 = Deck.new(hand1)
 deck2 = Deck.new(hand2)
+player1 = Player.new('Aurora', deck1)
+player2 = Player.new('Megan', deck2)
 
-#player = Player.new('Clarisa', deck)
-
-#deck = Deck.new(cards)
-game = Game.new#()
+game = Game.new(player1, player2)
 game.start
 
 
